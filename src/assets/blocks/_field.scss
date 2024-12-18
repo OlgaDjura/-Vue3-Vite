@@ -1,0 +1,81 @@
+.field {
+    //--color-dark: #191A23;
+    //--color-dark-alt: #292A32;
+    //--color-light: #FFFFFF;
+    //--color-accent: #B9FF66;
+    //--color-gray: #F3F3F3;
+    //--color-gray-alt: #898989;
+    //--input-height: 59px;
+    //--button-height: 68px;
+    //--border-radius: 14px;
+
+    --fieldInputHeight: var(--input-height);
+    --fieldInputTextColor: var(--color-dark);
+    --fieldInputBgColor: var(--color-light);
+    --fieldInputBorderColor: var(--color-dark);
+    --fieldInputPlaceholderColor: var(--color-gray-alt);
+    --fieldInputHoverBgColor: var(--color-accent);
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 5px;
+
+    @include mobile {
+        row-gap: 10px;
+    }
+    &--big-height {
+        --fieldInputHeight: var(--button-height);
+
+    }
+
+    &--dark-bg {
+    --fieldInputTextColor: var(--color-accent);
+    --fieldInputBgColor: var(--color-dark-alt);
+    --fieldInputBorderColor: var(--color-light);
+    --fieldInputPlaceholderColor: var(--color-light);
+    --fieldInputHoverBgColor: var(--color-dark);
+
+    }
+
+    &__label {
+        @include fluid-text(16, 14);
+    }
+
+    &__input {
+        width: 100%;
+        height: var(--fieldInputHeight);
+        padding-inline: 30px;
+        background-color: var(--fieldInputBgColor);
+        color: var(--fieldInputTextColor);
+        border: 1px solid var(--fieldInputBorderColor);
+        border-radius: var(--border-radius);
+
+        @include hover {
+            background-color: var(--fieldInputHoverBgColor);
+        }
+
+        @include mobile {
+            padding-inline: 20px;
+        }
+
+        &:focus {
+            border-color: var(--color-accent);
+            outline: none;
+        }
+
+        &::placeholder {
+            color: var(--fieldInputPlaceholderColor);
+        }
+
+        &--textarea {
+            height: 190px;
+            padding-block: 18px;
+            resize: none;
+
+            @include mobile {
+                height: 132px;
+            }
+        }
+    }
+}
